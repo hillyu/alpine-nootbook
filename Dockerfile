@@ -25,7 +25,7 @@ RUN pip install -U --no-cache-dir ${python_packages} \
     && rm -rf /root/.cache \
     && rm -rf /root/.[acpw]* \
     && rm -rf /var/cache/apk/* \
-    && find /usr/lib/ -name __pycache__ | xargs rm -r \
+    && find /usr/lib/ -name __pycache__ | xargs rm -rf \
     && apk del .build-deps \
     && echo "|--> Configure Jupyter extension" \
     && jupyter nbextension enable --py widgetsnbextension \

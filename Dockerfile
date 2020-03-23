@@ -34,4 +34,6 @@ RUN pip install -U --no-cache-dir ${python_packages} \
     && echo "warnings.filterwarnings('ignore')" >> ~/.ipython/profile_default/startup/config.py \
     && echo "c.NotebookApp.token = u''" >> ~/.ipython/profile_default/startup/config.py \
     && echo "|--> Done!"
-#ENTRYPOINT ["/sbin/tini", "--"]
+
+CMD ["jupyter", "notebook", "--port=5000", "--no-browser", \
+    "--allow-root", "--ip=0.0.0.0", "--NotebookApp.token="]
